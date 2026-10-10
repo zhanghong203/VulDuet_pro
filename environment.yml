@@ -1,0 +1,24 @@
+name: vulduet
+
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - faiss-cpu=1.15.1
+  - numpy
+  - scikit-learn
+  - pyyaml
+  - pip:
+      - openai
+      - FlagEmbedding
+      - transformers
+      - sentence-transformers
+

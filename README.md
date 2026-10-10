@@ -1,14 +1,18 @@
 # VulDuet
 
-## Setup
+## Create the Conda environment
 
 ```bash
-pip install -r requirements.txt
+conda env create -f environment.yml
+conda activate vulduet
 cp src/config/config.local.example.yml src/config/config.local.yml
 ```
 
 Add your own API key to `src/config/config.local.yml`. This local file is
 excluded from Git and must never be committed.
+
+Faiss is installed only by Conda. Do not install `faiss` or `faiss-cpu` with
+pip in this environment.
 
 The historical path uses Vul-RAG-style multi-view BM25 retrieval. Function
 purpose, security-relevant behavior, and vulnerable source code are searched

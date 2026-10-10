@@ -1,5 +1,4 @@
 FlagEmbedding
-faiss-cpu
 numpy
 openai
 PyYAML
