@@ -8,6 +8,7 @@ from pathlib import Path
 from src.agent.detector_dual_path import DualPathDetector
 from src.config.loader import load_llm_client
 from src.dataset.dataloader import PrimeVulPairLoader
+from src.util.compact_result import compact_pair
 from src.util.result_saver import ResultSaver
 
 
@@ -105,6 +106,14 @@ def main():
         auto_save_every=1,
         resume=True,
     )
+    compact_saver = ResultSaver(
+        str(ROOT / "output/result/primevul" / f"{name}_compact_result.json"),
+        auto_save_every=1,
+        resume=True,
+    )
+    # Repair or create the compact companion when resuming an existing full run.
+    for saved_result in saver.results:
+        compact_saver.append(compact_pair(saved_result))
     samples = PrimeVulPairLoader(str(ROOT / "data/test/primevul_test_paired.jsonl"))
     samples = islice(samples, args.limit) if args.limit else samples
 
@@ -132,11 +141,14 @@ def main():
         }
         for future in as_completed(futures):
             try:
-                saver.append(future.result())
+                result = future.result()
+                saver.append(result)
+                compact_saver.append(compact_pair(result))
                 print(f"[Saved] {futures[future]}")
             except Exception as exc:
                 print(f"[Failed] {futures[future]}: {exc}")
     saver.close()
+    compact_saver.close()
 
 
 if __name__ == "__main__":

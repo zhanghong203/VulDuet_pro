@@ -52,3 +52,10 @@ The builder validates `source_id`, CVE, and commit mappings before writing.
 python -m src.evaluation.evaluation_dual_path RESULT.json
 ```
 
+Every run saves both the complete `*_result.json` file and a smaller
+`*_compact_result.json` companion. To compact an existing result manually:
+
+```bash
+python -m src.evaluation.compact_results FULL_RESULT.json
+```
+
