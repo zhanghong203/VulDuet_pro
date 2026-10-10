@@ -1,0 +1,7 @@
+llm_profiles:
+  gpt4o_mini:
+    api_key: "replace-with-your-api-key"
+  deepseek_v3_2:
+    api_key: "replace-with-your-api-key"
+  gpt35_turbo:
+    api_key: "replace-with-your-api-key"

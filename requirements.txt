@@ -1,0 +1,7 @@
+FlagEmbedding
+faiss-cpu
+numpy
+openai
+PyYAML
+scikit-learn
+

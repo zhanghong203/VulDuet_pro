@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.pytest_cache/
+*.log
+
+# Local credentials and machine-specific configuration.
+src/config/config.local.yml
+.env
+.env.*
+
+# Generated experiment outputs are intentionally not versioned.
+output/result/
+

@@ -1,0 +1,16 @@
+# Public LLM settings. Do not put API keys in this tracked file.
+llm_profiles:
+  gpt4o_mini:
+    base_url: "https://api.openai-proxy.org/v1"
+    model: "gpt-4o-mini"
+    temperature: 0
+
+  deepseek_v3_2:
+    base_url: "https://api.apiyi.com/v1"
+    model: "deepseek-v3.2"
+    temperature: 0
+
+  gpt35_turbo:
+    base_url: "https://api.openai-proxy.org/v1"
+    model: "gpt-3.5-turbo"
+    temperature: 0
